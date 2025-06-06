@@ -59,6 +59,47 @@ class About extends Component {
         const updatedSkills = this.state.skills.filter(s => s.id !== skill.id);
         this.setState({ skills: updatedSkills });
     }
+
+    componentDidMount() {
+        document.title = this.state.title;
+        // Simuler une requête pour récupérer les compétences
+        setTimeout(() => {
+            // Ici, vous pourriez faire une requête API pour récupérer les compétences
+            // Pour l'instant, nous utilisons les compétences par défaut
+            this.setState({
+                skills: [...this.state.skills]
+            });
+        }, 1000);
+    }
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.skills !== this.state.skills) {
+            console.log('Skills updated:', this.state.skills);
+        }
+    }
+
+    componentWillUnmount() {
+        console.log('About component is being removed from the DOM');
+    }
+    static getDerivedStateFromProps(nextProps, prevState) {
+        // Vous pouvez mettre à jour l'état en fonction des props ici si nécessaire
+        return null;
+    }
+    static getDerivedStateFromError(error) {
+        // Mettre à jour l'état pour afficher une erreur
+        return { hasError: true };
+    }
+    componentDidCatch(error, info) {
+        // Vous pouvez enregistrer l'erreur ici
+        console.error("Error caught in About component:", error, info);
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        // Vous pouvez contrôler si le composant doit se mettre à jour
+        return true; // Par défaut, nous autorisons la mise à jour
+    }
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        // Vous pouvez capturer des informations avant la mise à jour du DOM
+        return null; // Par défaut, nous ne capturons rien
+    }
     
     render() {
         return (

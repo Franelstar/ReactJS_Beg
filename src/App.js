@@ -23,7 +23,6 @@ function App() {
           <li className='nav-item'>
             <Link to="/gallery" className="nav-link">Gallery</Link>
           </li>
-
         </ul>
       </nav>
 
