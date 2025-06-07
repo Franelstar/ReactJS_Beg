@@ -26,7 +26,7 @@ function App() {
         </ul>
       </nav>
 
-      <div className="container">
+      <div className="m-4">
         <Routes>
           <Route path="/home" Component={Count}></Route>
           <Route path="/counter" Component={Count}></Route>
