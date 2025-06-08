@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes, Link, BrowserRouter as Router } from 'react-router-dom';
 import About from './components/about';
 import Gallery from './components/gallery';
+import HitDetail from './components/hitDetail';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/counter" Component={Count}></Route>
           <Route path="/about" Component={About}></Route>
           <Route path="/gallery" Component={Gallery}></Route>
+          <Route path="/hitDetail/:id" Component={HitDetail}></Route>
         </Routes>
       </div>
     </Router>
